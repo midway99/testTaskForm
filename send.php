@@ -39,8 +39,8 @@ if (!empty($recaptcha)) {
         $name = trim($name);
         $phone = trim($phone);
         $comments = trim($comments);
-        $headers = 'MIME-Version: 1.0' . "\r\n"; // заголовок соответствует формату плюс символ перевода строки
-        $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n"; // указывает на тип посылаемого контента
+        $headers = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
         $headers .= 'info@gmail.com';
         if (mail("nikita.vystoropsky@gmail.com", "Заявка с сайта", "Имя:" . $comments . " . Телефон: " . $phone . " Коментарий: " . $comments, 'From' . $headers . "\r\n")) {
             echo "Сообщение успешно отправлено . </br>";
