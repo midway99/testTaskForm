@@ -1,21 +1,21 @@
-<?php
-$error   = null;
-$data = $__POST;
-$name    = $data['name'];
-$phone   = $data['phone'];
+<?
+$name = $_POST['name'];
+$phone = $_POST['phone'];
+$comments = $_POST['comments'];
 
-
-if(isset($data['name'])){
-    if(preg_match("/^[a-zA-Zа-яА-Я]",$data['name'])){
-        print_r ('имя не верно.');
+if (isset($name)) {
+    if (preg_match("/^[a-zA-Zа-яА-Я'][a-zA-Zа-яА-Я-' ]+[a-zA-Zа-яА-Я']?$/u", $name)) {
+        echo ('имя  верно') . '<br/>';
+    } else {
+        echo ('имя не  верно') . '<br/>';
     }
-    else echo "имя не верно";
 }
 
-if(isset($data['phone'])){
-    if(preg_match("/^([+]?[0-9\s-\(\)]{3,25})*$/i",$data['phone'])){
-        print_r( 'телефон верен.');
+if (isset($phone)) {
+    if (preg_match("!^\+7 \(\d{3}\) \d{3}(-\d{2}){2}$!", $phone)) {
+        echo ('телефон верен ') . '<br/>';
+    } else {
+        echo ('телефон не верен') . '<br/>';
     }
-    else echo "телефон не веерен";
 }
 ?>

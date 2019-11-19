@@ -1,19 +1,23 @@
-function  validateInput() {
-    let name = document.querySelector('form__name');
-    let phone = document.querySelector('form__phone');
+window.onload()
+{
+    function validate() {
+        let userName = document.getElementById('name');
+        let userPhone = document.getElementById('phone');
+        let userNameVal = userName.text;
+        let userNamePhone = userPhone.text;
+        let namePattern = "/^[a-zA-Zа-яА-Я'][a-zA-Zа-яА-Я-' ]+[a-zA-Zа-яА-Я']?$/u";
+        let phonePattern = "!^\\+7 \\(\\d{3}\\) \\d{3}(-\\d{2}){2}$!";
 
-    if(name === '' || phone === '' && name === null || phone === null){
-        name.style = 'border:1px solid red; padding:3px;'
+        if (namePattern.test(userNameVal)) {
+            userName.style = "border:1px solid green";
+        } else {
+            userName.style = "border:1px solid red";
+        }
+        if (phonePattern.test(userNamePhone)) {
+            userName.style = "border:1px solid green";
+        } else {
+            userName.style = "border:1px solid red";
+        }
     }
-
 }
 
-function validatePhone(phone) {
-    let  rePhone = new RegExp("/^[\\+]?[(]?[0-9]{3}[)]?[-\\s\\.]?[0-9]{3}[-\\s\\.]?[0-9]{4,6}$/im");
-    return rePhone.test(phone);
-}
-
-function  validateName(name) {
-    let  reName = new RegExp("/^[a-zA-Zа-яА-Я]+$/ui");
-    return rePhone.test(name);
-}
